@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:location_example/change_settings.dart';
 import 'package:location_example/enable_in_background.dart';
+import 'package:location_example/simple_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'change_notification.dart';
@@ -90,20 +91,31 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           padding: const EdgeInsets.all(32),
           child: Column(
-            children: const <Widget>[
-              PermissionStatusWidget(),
-              Divider(height: 32),
-              ServiceEnabledWidget(),
-              Divider(height: 32),
-              GetLocationWidget(),
-              Divider(height: 32),
-              ListenLocationWidget(),
-              Divider(height: 32),
-              ChangeSettings(),
-              Divider(height: 32),
-              EnableInBackgroundWidget(),
-              Divider(height: 32),
-              ChangeNotificationWidget()
+            children: <Widget>[
+              const PermissionStatusWidget(),
+              const Divider(height: 32),
+              const ServiceEnabledWidget(),
+              const Divider(height: 32),
+              const GetLocationWidget(),
+              const Divider(height: 32),
+              const ListenLocationWidget(),
+              const Divider(height: 32),
+              const ChangeSettings(),
+              const Divider(height: 32),
+              const EnableInBackgroundWidget(),
+              const Divider(height: 32),
+              const ChangeNotificationWidget(),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Test(),
+                      ));
+                },
+                child: const Text(
+                    'Head over to another page (Navigator.pushReplacement)'),
+              )
             ],
           ),
         ),
